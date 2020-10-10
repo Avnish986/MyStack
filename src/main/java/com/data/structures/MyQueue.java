@@ -11,6 +11,10 @@ public class MyQueue {
 		mll.addFront(node);
 	}
 
+	public void dequeue() {
+		mll.pop();
+	}
+
 	public void print() {
 		mll.print();
 	}
