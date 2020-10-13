@@ -100,7 +100,36 @@ public class MyLinkedList<E> {
 		}
 		return -2;
 	}
+	public int search1Index(E key) {
+		int l = len();
+		if (head == null) {
+			return -1;
+		} else {
+			INode temp = head;
+			int cnt = 0;
+			while (temp != null) {
+				if (temp.getKey().equals(key)) {
+					System.out.println(key + " Fount at " + cnt);
+					return cnt;
+				}
+				cnt++;
+				temp = temp.getNext();
+			}
 
+		}
+		return -2;
+	}
+	public INode<E> search1(E key) {
+		INode<E> tempNode = head;
+		while (tempNode != null) {
+			if (tempNode.getKey().equals(key)) {
+				System.out.println("Element found!!");
+				return tempNode;
+			} else
+				tempNode = tempNode.getNext();
+		}
+		return null;
+	}
 	public void insert(INode node, Integer key) {
 		if (head == null) {
 			return;
@@ -146,6 +175,35 @@ public class MyLinkedList<E> {
 			return;
 		}
 	}
+	public void delete1(E key) {
+		if (head == null) {
+			return;
+		}
+		int pos = search1Index(key);
+		if(pos==0) {
+			pop();
+		}
+		else if(pos == len()-1) {
+			popLast();
+		}
+		else if (pos > 0 && pos < len()-1) {
+			INode temp = head;
+			INode temp2 = head.getNext();
+			while (temp2 != null) {
+				temp2 = temp2.getNext();
+				if (pos == 1) {
+					INode temp3 = temp.getNext();
+					temp.setNext(temp2);
+					return;
+				}
+				temp = temp.getNext();
+				pos--;
+			}
+		} else {
+			System.out.println("No such key in linked list");
+			return;
+		}
+	}
 
 	public void print() {
 		INode temp = head;
@@ -154,6 +212,10 @@ public class MyLinkedList<E> {
 			temp = temp.getNext();
 		}
 		System.out.println("");
+	}
+	@Override 
+	public String toString() {
+		return "LL{" +head +'}';
 	}
 
 }
