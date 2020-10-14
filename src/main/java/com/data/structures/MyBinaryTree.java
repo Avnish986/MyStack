@@ -37,14 +37,13 @@ public class MyBinaryTree <K extends Comparable<K>> {
 		if (root == null) {
 			return false;
 		}
-		int compared = root.key.compareTo(key);
-		if (compared == 0)
+		int res = root.key.compareTo(key);
+		if (res == 0)
 			return true;
-		else if (compared < 0)
+		else if (res < 0)
 			return searchRecursive(root.right, key);
 		else
 			return searchRecursive(root.left, key);
 	}
-
-	
 }
+

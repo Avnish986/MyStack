@@ -33,4 +33,22 @@ public class BinaryTreeTest {
 		int s = tree.getSize();
 		Assert.assertEquals(13, s);
 	}
+	@Test
+	public void given13Numbers_WhenAdded_BinaryTreeShouldReturnTrueIfElementFound() {
+		MyBinaryTree tree = new MyBinaryTree();
+		tree.add(56);
+		tree.add(30);
+		tree.add(70);
+		tree.add(60);
+		tree.add(95);
+		tree.add(65);
+		tree.add(63);
+		tree.add(67);
+		tree.add(22);
+		tree.add(40);
+		tree.add(11);
+		tree.add(3);
+		tree.add(16);
+		Assert.assertEquals(true, tree.search(63));
+	}
 }
